@@ -15,11 +15,8 @@ uint64_t solve (const uint32_t N)
    * Vector of bool to the rescue. Most of the time
    * is spent here in sieving all primes.
    */
-  std::vector<bool> is_prime;
-  std::vector<bool> is_square_free;
-
-  is_prime.resize (N+1, true);
-  is_square_free.resize (N+1, true);
+  std::vector<bool> is_prime (N+1, true);
+  std::vector<bool> is_square_free (N+1, true);
 
   is_prime[1] = false;
 
@@ -52,6 +49,7 @@ uint64_t solve (const uint32_t N)
   for (uint32_t a = 1; a <= N; ++a)
   {
     if (!is_square_free[a]) continue;
+
     L.clear ();
 
     for (uint32_t j = 1; /*a*j*j <= N*/; ++j)
@@ -77,8 +75,6 @@ uint64_t solve (const uint32_t N)
 
 	if (is_prime[m-1])
 	{
-	  //	  std::cerr << "(" << l-1 << "," << m-1 << "," << u-1 << ")"
-	  //	    << std::endl;
 	  result += (l-1) + (m-1) + (u-1);
 	}
       }
