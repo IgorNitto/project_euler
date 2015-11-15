@@ -22,7 +22,7 @@ double h_n (const std::uint64_t N)
 }
 
 /*
- * Estimate R_n value, the expected number of comparison
+ * Estimate R_n value, the average number of comparison
  * done by binary search with randomized pivot choice
  */
 double r_n (const std::uint64_t N)
@@ -31,7 +31,7 @@ double r_n (const std::uint64_t N)
 }
 
 /*
- * Calculate B_n value, the expected number of comparison
+ * Calculate B_n value, the average number of comparison
  * done by ordinary binary search
  */
 double b_n (const std::uint64_t N)
