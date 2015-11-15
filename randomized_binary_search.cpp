@@ -36,20 +36,20 @@ double r_n (const std::uint64_t N)
  */
 double b_n (const std::uint64_t N)
 {
-  std::uint64_t node_count =0;
-  std::uint64_t height =0;
+  std::uint64_t node_count = 0;
+  std::uint64_t depth = 0;
   double result = 0.;
 
   while (node_count < N)
   {
     const auto level_size = std::min(
-      std::uint64_t{1} << height, N - node_count);
+      std::uint64_t{1} << depth, N - node_count);
 
     result += (static_cast<double> (level_size)/N) *
-                (height + 1);
+                (depth + 1);
 
     node_count += level_size;
-    ++height;
+    ++depth;
   }
 
   return result;
